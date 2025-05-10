@@ -1,0 +1,7 @@
+.next
+yarn.lock
+yarn-error.log
+.env    
+.env.local
+node_modules
+package-lock.json
