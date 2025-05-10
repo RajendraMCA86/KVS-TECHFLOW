@@ -8,19 +8,19 @@ export default function ContactInfo() {
     {
       icon: <Mail className="h-6 w-6 text-primary" />,
       title: 'Email Us',
-      content: 'info@kvstechflow.com',
-      link: 'mailto:info@kvstechflow.com',
+      content: 'hr@kvstechflow.com',
+      link: 'mailto:hr@kvstechflow.com',
     },
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
       title: 'Call Us',
-      content: '+1 (123) 456-7890',
+      content: '+91 9529906991',
       link: 'tel:+11234567890',
     },
     {
       icon: <MapPin className="h-6 w-6 text-primary" />,
       title: 'Visit Us',
-      content: '123 Tech Street, Silicon Valley, CA 94043',
+      content: 'FW/27,Supercity,Dhaabli,Manglia,Indore-453771,(MP)',
       link: 'https://maps.google.com',
     },
     {
