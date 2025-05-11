@@ -9,7 +9,7 @@ export default function Footer() {
         <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8 mb-12">
           <div>
             <div className="mb-6">
-              <Logo variant="light" />
+              <Logo/>
             </div>
             <p className="mb-6 text-gray-300">
               Transforming businesses through innovative technology solutions and services.
