@@ -78,7 +78,7 @@ export default function Team() {
                     <Link href={`/team/${member.id}`}>
                       <Button 
                         variant="ghost" 
-                        className="text-primary hover:text-primary/90 p-0"
+                        className="text-primary hover:text-primary  p-2 border border-transparent hover:border-primary/70 hover:bg-primary/10 "
                       >
                         View Profile
                       </Button>

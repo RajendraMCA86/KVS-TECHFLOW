@@ -67,7 +67,7 @@ export default function Hero() {
             <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
               Get Started
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+            <Button size="lg" variant="outline" className="border-white text-orange-500 hover:bg-white/10">
               Our Services <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
           </motion.div>

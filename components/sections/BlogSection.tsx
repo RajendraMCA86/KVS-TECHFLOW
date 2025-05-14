@@ -70,7 +70,7 @@ export default function BlogSection() {
                 </CardContent>
                 <CardFooter>
                   <Link href={`/blog/${post.slug}`}>
-                    <Button variant="ghost" className="text-primary hover:text-primary/90 p-0">
+                    <Button variant="ghost" className="text-primary hover:text-primary  p-2 border border-transparent hover:border-primary/70 hover:bg-primary/10 ">
                       Read More <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>
@@ -82,7 +82,7 @@ export default function BlogSection() {
         
         <div className="text-center mt-12">
           <Link href="/blog">
-            <Button size="lg" className="bg-primary hover:bg-primary/90">
+            <Button size="lg" className="text-white hover:text-primary  p-5 border border-transparent hover:border-primary/70 hover:bg-primary/10 ">
               View All Posts
             </Button>
           </Link>

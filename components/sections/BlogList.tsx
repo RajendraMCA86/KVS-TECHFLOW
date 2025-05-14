@@ -83,7 +83,7 @@ export default function BlogList() {
                     </CardContent>
                     <CardFooter>
                       <Link href={`/blog/${post.slug}`}>
-                        <Button variant="ghost" className="text-primary hover:text-primary/90 p-0">
+                        <Button variant="ghost" className="text-primary hover:text-primary  p-2 border border-transparent hover:border-primary/70 hover:bg-primary/10 ">
                           Read More <ArrowRight className="ml-2 h-4 w-4" />
                         </Button>
                       </Link>

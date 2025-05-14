@@ -92,7 +92,7 @@ export default function Services() {
                   </CardContent>
                   <CardFooter>
                     <Link href={`/services/${service.id}`}>
-                      <Button variant="ghost" className="text-primary hover:text-primary/90 p-0">
+                      <Button variant="ghost" className="text-primary hover:text-primary border border-transparent hover:border-primary p-3 hover:bg-primary/10 transition-all duration-300">
                         Learn More <ArrowRight className="ml-2 h-4 w-4" />
                       </Button>
                     </Link>
@@ -105,7 +105,7 @@ export default function Services() {
         
         <div className="text-center mt-12">
           <Link href="/services">
-            <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
+            <Button size="lg" className="bg-primary text-white hover:text-primary border border-transparent hover:border-primary p-3 hover:bg-primary/10 transition-all duration-300">
               View All Services
             </Button>
           </Link>
