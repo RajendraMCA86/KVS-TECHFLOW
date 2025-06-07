@@ -1,6 +1,7 @@
 "use client";
 
-import { motion } from 'framer-motion';
+import { motion, useScroll, useTransform } from 'framer-motion';
+import { useRef } from 'react';
 
 interface PageHeaderProps {
   title: string;
@@ -8,11 +9,24 @@ interface PageHeaderProps {
 }
 
 export default function PageHeader({ title, description }: PageHeaderProps) {
-  return (
-    <section className="bg-gradient-to-r from-orange-500 to-red-500 py-20 md:py-32">
-      <div className="container mx-auto text-center text-white">
+  const ref = useRef(null);
+  const { scrollYProgress } = useScroll({
+    target: ref,
+    offset: ["start start", "end start"]
+  });
+
+  const opacity = useTransform(scrollYProgress, [0, 1], [1, 0]);
+  const scale = useTransform(scrollYProgress, [0, 1], [1, 0.95]);
+
+  return (    <motion.section 
+      ref={ref}
+      style={{ scale, opacity }}
+      className="relative min-h-[60vh] bg-gradient-to-r from-gray-800 via-gray-700 to-gray-900  py-20 md:py-32 overflow-hidden"
+    >
+
+      <div className="container relative mx-auto text-center text-white">
         <motion.h1 
-          className="text-4xl md:text-5xl font-bold mb-6"
+          className="text-4xl md:text-5xl font-bold mb-6 relative"
           initial={{ opacity: 0, y: 20 }}
           animate={{ opacity: 1, y: 0 }}
           transition={{ duration: 0.5 }}
@@ -31,6 +45,6 @@ export default function PageHeader({ title, description }: PageHeaderProps) {
           </motion.p>
         )}
       </div>
-    </section>
+    </motion.section>
   );
 }

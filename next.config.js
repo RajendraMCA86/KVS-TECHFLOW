@@ -1,20 +1,21 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  output: 'export',
-  eslint: {
-    ignoreDuringBuilds: true,
-  },
   images: {
-    unoptimized: true,
+    domains: ['images.pexels.com', 'images.unsplash.com'],
     remotePatterns: [
       {
         protocol: 'https',
-        hostname: 'images.pexels.com',
-        port: '',
-        pathname: '/**',
+        hostname: 'images.pexels.com'
       },
+      {
+        protocol: 'https',
+        hostname: 'images.unsplash.com'
+      }
     ],
-  },
-};
+    dangerouslyAllowSVG: true,
+    contentDispositionType: 'attachment',
+    contentSecurityPolicy: "default-src 'self'; script-src 'none'; sandbox;"
+  }
+}
 
-module.exports = nextConfig;
+module.exports = nextConfig

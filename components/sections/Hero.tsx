@@ -5,6 +5,7 @@ import Image from 'next/image';
 import { motion, useScroll, useTransform } from 'framer-motion';
 import { Button } from '@/components/ui/button';
 import { ArrowRight } from 'lucide-react';
+import Link from 'next/link';
 
 export default function Hero() {
   const ref = useRef<HTMLDivElement>(null);
@@ -49,7 +50,7 @@ export default function Hero() {
           </motion.h1>
           
           <motion.p
-            className="text-lg md:text-xl mb-8 text-gray-200"
+            className="text-lg md:text-xl mb-10 text-gray-200"
             initial={{ opacity: 0, y: 20 }}
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.2 }}
@@ -64,12 +65,16 @@ export default function Hero() {
             animate={{ opacity: 1, y: 0 }}
             transition={{ duration: 0.7, delay: 0.4 }}
           >
-            <Button size="lg" className="bg-primary text-white hover:bg-primary/90">
+            <Link href="/contact">
+            <Button size="lg" className="bg-primary text-primary-foreground dark:hover:bg-primary/80">
               Get Started
             </Button>
-            <Button size="lg" variant="outline" className="border-white text-orange-500 hover:bg-white/10">
+            </Link>
+            <Link href="/services">
+            <Button size="lg" className="bg-primary text-primary-foreground dark:hover:bg-primary/80">
               Our Services <ArrowRight className="ml-2 h-4 w-4" />
             </Button>
+            </Link>
           </motion.div>
         </div>
       </div>

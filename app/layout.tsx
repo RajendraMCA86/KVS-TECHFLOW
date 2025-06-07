@@ -4,6 +4,7 @@ import { Inter, Poppins } from 'next/font/google';
 import Footer from '@/components/layout/Footer';
 import Navbar from '@/components/layout/Navbar';
 import { Toaster } from '@/components/ui/toaster';
+import { Chatbot } from '@/components/ui/chat-bot';
 
 // Font configuration
 const poppins = Poppins({
@@ -19,6 +20,7 @@ const inter = Inter({
 
 // Metadata for SEO
 export const metadata: Metadata = {
+  metadataBase: new URL(process.env.NEXT_PUBLIC_SITE_URL || 'http://localhost:3000'),
   title: 'KVS Techflow IT Solution - Innovative Technology Solutions',
   description: 'KVS Techflow IT Solution provides cutting-edge technology services, custom software development, IT consulting, and digital transformation solutions for businesses of all sizes.',
   keywords: 'IT solutions, software development, web development, IT consulting, digital transformation, technology services, KVS Techflow',
@@ -50,11 +52,12 @@ export default function RootLayout({
   children: React.ReactNode;
 }) {
   return (
-    <html lang="en">
-      <body className={`${poppins.variable} ${inter.variable} font-poppins`}>
+    <html lang="en" className="scroll-smooth">
+      <body className={`${poppins.variable} ${inter.variable} font-poppins min-h-screen bg-white`}>
         <Navbar />
         <main>{children}</main>
         <Footer />
+        <Chatbot />
         <Toaster />
       </body>
     </html>

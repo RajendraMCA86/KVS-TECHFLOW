@@ -7,7 +7,7 @@ import { format } from 'date-fns';
 import { ArrowRight } from 'lucide-react';
 import { Card, CardContent, CardFooter, CardHeader } from '@/components/ui/card';
 import { Button } from '@/components/ui/button';
-import { blogPosts } from '@/data';
+import { blogPosts, BlogPost } from '@/data';
 
 export default function BlogSection() {
   // Only show the latest 3 blog posts
@@ -57,20 +57,27 @@ export default function BlogSection() {
                 </div>
                 <CardHeader className="pt-6">
                   <div className="text-sm text-gray-500 mb-2">
-                    {format(new Date(post.date), 'MMMM dd, yyyy')} | By {post.author}
+                    {format(new Date(post.date), 'MMMM dd, yyyy')} | By {post.author.name}
                   </div>
-                  <Link href={`/blog/${post.slug}`}>
-                    <h3 className="text-xl font-semibold hover:text-primary transition-colors">
-                      {post.title}
-                    </h3>
+                  <Link 
+                    href={`/blog/${post.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                    className="hover:text-primary transition-colors"
+                  >
+                    <h3 className="text-xl font-semibold mb-2">{post.title}</h3>
                   </Link>
                 </CardHeader>
                 <CardContent>
                   <p className="text-gray-600 line-clamp-3">{post.excerpt}</p>
                 </CardContent>
                 <CardFooter>
-                  <Link href={`/blog/${post.slug}`}>
-                    <Button variant="ghost" className="text-primary hover:text-primary  p-2 border border-transparent hover:border-primary/70 hover:bg-primary/10 ">
+                  <Link 
+                    href={`/blog/${post.slug}`}
+                    target="_blank"
+                    rel="noopener noreferrer"
+                  >
+                    <Button variant="ghost" className="text-primary hover:text-primary border border-transparent hover:border-primary p-3 hover:bg-primary/10 transition-all duration-300">
                       Read More <ArrowRight className="ml-2 h-4 w-4" />
                     </Button>
                   </Link>

@@ -22,7 +22,7 @@ export const generateMetadata = ({ params }: { params: { slug: string } }): Meta
       description: post.excerpt,
       type: 'article',
       publishedTime: post.date,
-      authors: [post.author],
+      authors: [post.author.name],
     },
   };
 };
@@ -35,10 +35,9 @@ export default function BlogPostPage({ params }: { params: { slug: string } }) {
   }
   
   return (
-    <>
-      <PageHeader 
+    <>      <PageHeader 
         title={post.title} 
-        description={`Published on ${post.date} by ${post.author}`}
+        description={`Published on ${post.date} by ${post.author.name}`}
       />
       <BlogPost post={post} />
     </>
