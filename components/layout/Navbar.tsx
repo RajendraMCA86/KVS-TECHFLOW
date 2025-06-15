@@ -7,13 +7,21 @@ import { Menu, X } from 'lucide-react';
 import Logo from '@/components/ui/Logo';
 import { Button } from '@/components/ui/button';
 import { cn } from '@/lib/utils';
+import BlogSubmenu from './BlogSubmenu';
 
-const navLinks = [
+type NavLink = 
+  | { href: string; label: string; type?: never }
+  | { type: 'component'; component: React.ComponentType; href?: never; label?: never };
+
+const navLinks: NavLink[] = [
   { href: '/', label: 'Home' },
   { href: '/about', label: 'About' },
   { href: '/services', label: 'Services' },
-  { href: '/blog', label: 'Blog' },
+  { type: 'component', component: BlogSubmenu },
+  { href: '/careers', label: 'Careers' },
   { href: '/contact', label: 'Contact' },
+  { href: '/auth/login', label: 'Login' },
+  { href: '/auth/signup', label: 'Sign Up' },
 ];
 
 export default function Navbar() {
@@ -44,24 +52,29 @@ export default function Navbar() {
     >
       <div className="container mx-auto flex items-center justify-between">
         <Logo />
-        
-        {/* Desktop Navigation */}
+          {/* Desktop Navigation */}
         <nav className="hidden md:flex items-center space-x-8">
-          {navLinks.map((link) => (
-            <Link 
-              key={link.href} 
-              href={link.href}
-              className={cn(
-                "font-medium transition-colors",
-                scrolled ? "text-gray-700 hover:text-primary" : "text-white hover:text-primary"
-              )}
-            >
-              {link.label}
-            </Link>
-          ))}
-          <Button className="bg-primary text-white hover:bg-primary/90">Get Started</Button>
+          {navLinks.map((link, index) => 
+            link.type === 'component' ? (
+              <div key={index} className={cn(
+                scrolled ? "text-gray-700" : "text-white"
+              )}>
+                <link.component />
+              </div>
+            ) : (
+              <Link 
+                key={link.href}
+                href={link.href}
+                className={cn(
+                  "font-medium transition-colors",
+                  scrolled ? "text-gray-700 hover:text-primary" : "text-white hover:text-primary"
+                )}
+              >
+                {link.label}
+              </Link>
+            )
+          )}
         </nav>
-        
         {/* Mobile Navigation Toggle */}
         <div className="md:hidden">
           <button 
@@ -86,25 +99,29 @@ export default function Navbar() {
             exit={{ opacity: 0, height: 0 }}
             transition={{ duration: 0.3 }}
             className="md:hidden bg-white"
-          >
-            <div className="container mx-auto py-4 space-y-4">
-              {navLinks.map((link) => (
+          >            <div className="container mx-auto py-4 space-y-4">
+              {navLinks.map((link, index) => (
                 <motion.div
-                  key={link.href}
+                  key={index}
                   initial={{ x: -20, opacity: 0 }}
                   animate={{ x: 0, opacity: 1 }}
-                  transition={{ delay: 0.1 }}
+                  transition={{ delay: index * 0.1 }}
                 >
-                  <Link 
-                    href={link.href}
-                    onClick={() => setIsOpen(false)}
-                    className="block py-2 text-gray-700 hover:text-primary font-medium transition-colors"
-                  >
-                    {link.label}
-                  </Link>
+                  {link.type === 'component' ? (
+                    <div className="py-2 text-gray-700">
+                      <link.component />
+                    </div>
+                  ) : (
+                    <Link 
+                      href={link.href}
+                      onClick={() => setIsOpen(false)}
+                      className="block py-2 text-gray-700 hover:text-primary font-medium transition-colors"
+                    >
+                      {link.label}
+                    </Link>
+                  )}
                 </motion.div>
               ))}
-              <Button className="w-full bg-primary text-white hover:bg-primary/90 mt-4">Get Started</Button>
             </div>
           </motion.div>
         )}

@@ -28,12 +28,12 @@ export default function CTA() {
           
           <div className="flex flex-col sm:flex-row justify-center gap-4">
             <Link href="/contact">
-              <Button size="lg" className="bg-white text-primary hover:bg-white/90">
+              <Button size="lg" variant="outline" className="border-white text-primary  hover:bg-white/10">
                 Get Started <ArrowRight className="ml-2 h-4 w-4" />
               </Button>
             </Link>
             <Link href="/services">
-              <Button size="lg" variant="outline" className="border-white text-white hover:bg-white/10">
+              <Button size="lg" variant="outline" className="border-white text-primary hover:bg-white/10">
                 Explore Services
               </Button>
             </Link>

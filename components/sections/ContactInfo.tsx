@@ -14,13 +14,13 @@ export default function ContactInfo() {
     {
       icon: <Phone className="h-6 w-6 text-primary" />,
       title: 'Call Us',
-      content: '+1 (123) 456-7890',
-      link: 'tel:+11234567890',
+      content: '+91 8458829844',
+      link: 'tel:+91 8458829844',
     },
     {
       icon: <MapPin className="h-6 w-6 text-primary" />,
       title: 'Visit Us',
-      content: '123 Tech Street, Silicon Valley, CA 94043',
+      content: 'House No. FW/27, Supercity, Dhaabli, Mangalia, Indore - 453771, M.P.',
       link: 'https://maps.google.com',
     },
     {

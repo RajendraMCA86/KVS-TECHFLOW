@@ -45,7 +45,7 @@ export default function BlogPost({ post }: BlogPostProps) {
               </div>
               <div className="flex items-center">
                 <User className="h-4 w-4 mr-2" />
-                By {post.author}
+                By {post.author.name}
               </div>
               <div className="flex items-center">
                 <Clock className="h-4 w-4 mr-2" />
@@ -58,13 +58,10 @@ export default function BlogPost({ post }: BlogPostProps) {
             <p className="text-xl text-gray-600 mb-8 leading-relaxed">
               {post.excerpt}
             </p>
-            
-            <div className="mt-8">
-              {post.content.split('\n\n').map((paragraph, index) => (
-                <p key={index} className="mb-6 text-gray-700 leading-relaxed">
-                  {paragraph}
-                </p>
-              ))}
+              <div className="mt-8">
+              <p className="mb-6 text-gray-700 leading-relaxed">
+                {post.excerpt}
+              </p>
             </div>
           </div>
           
